@@ -2,11 +2,9 @@ from __future__ import absolute_import, print_function, division
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import Imputer
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
-
 from sklearn.model_selection import train_test_split
-
+from sklearn.manifold import TSNE
 # Importing Data
 dataset = pd.read_csv('Data.csv')
 
@@ -35,7 +33,7 @@ X = imp.fit_transform(X)
 # Dummy Variable for CD
 o_h1 = OneHotEncoder(categorical_features=[6,7])
 X = o_h1.fit_transform(X).toarray()
-X = X[:,1:] #To account for Dummy Variable Removed First Column
+X = X[:,1:] #To account for Dummy Variable Trap; Removed First Column
 
 # Splitting of Data
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.20, random_state = 0)
@@ -44,8 +42,6 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.20, rand
 stdsc = StandardScaler()
 X_train = stdsc.fit_transform(X_train)
 X_test = stdsc.fit_transform(X_test)
-
-
 
 
 

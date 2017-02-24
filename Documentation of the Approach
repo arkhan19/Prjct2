@@ -1,0 +1,23 @@
+Requirements:
+1. Pandas
+2. Numpy
+3. Sklearn
+
+Input:
+Dataset Consisted of both numerical and categorical data. Removed Independent variables which doesn't correlate directly
+to the Dependent variable. Features used are : Duration; Director Facebook Likes; Actor3 Facebook Likes; Actor1 Facebook
+likes; Gross; Number of Faces on the Poster (main poster), Language; Country; Actor 2 Facebook Likes.
+
+Output:
+Prediction of IMDB score based ranging from 0-10
+
+Pre Processing on Data:
+1. Label Encoder for Categorical datas
+2. Missing Values
+3. One Hot Encoder for Categorical features
+4. Standard Scalar on Input Features.
+
+Classifier:
+Random Forest Classifier
+
+Accuracy Achieved on Test Set :
