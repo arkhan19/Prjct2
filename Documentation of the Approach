@@ -1,7 +1,8 @@
 Requirements:
-1. Pandas
-2. Numpy
-3. Sklearn
+1. Python 2.7.12
+2. Pandas 0.19.2
+3. Numpy 1.12.0
+4. Scikit-learn 0.18.1 && sklearn 0.0
 
 Input:
 Dataset Consisted of both numerical and categorical data. Removed Independent variables which doesn't correlate directly
@@ -15,9 +16,8 @@ Pre Processing on Data:
 1. Label Encoder for Categorical datas
 2. Missing Values
 3. One Hot Encoder for Categorical features
-4. Standard Scalar on Input Features.
 
 Classifier:
 Random Forest Classifier
 
-Accuracy Achieved on Test Set :
+Accuracy Achieved on Test Set : 70
