@@ -1,8 +1,10 @@
+from __future__ import absolute_import, print_function, division
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import Imputer
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
+
 from sklearn.model_selection import train_test_split
 
 # Importing Data
@@ -28,21 +30,13 @@ df = dataset.drop([col for col in ['movie_title', 'color', 'director_name', 'act
 
 X = df.iloc[:, :-1].values  # except last col
 # Used in asarray Y = df.iloc[:, -1:].values  # Last column array
-Y = np.asarray(df.iloc[:, -1:].values, dtype="|S6") #Y was object
-#Label Encoder for Language column -ZZZ
-label = LabelEncoder()
-X[:,6] = label.fit_transform(X[:,6])
+Y = np.asarray(df.iloc[:, -1:].values, dtype="|S6") #numpy is moody
 
 # Missing Values
-imp = Imputer(missing_values='NaN', strategy='most_frequent', axis = 1)
-X = imp.fit_transform(np.array(X))
-
-# Dummy Variable -ZZZ
-dum = OneHotEncoder()
-X = dum.fit_transform(X).toarray()
-
-
+imp = Imputer(missing_values='NaN', strategy='mean', axis=0)
+X = imp.fit_transform(X)
 # df = df.replace(np.nan, ' ', regex=True)  # Only works on dataframe object not on ndarray.
+
 # Splitting data into training and testing
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.20, random_state = 0)
 
