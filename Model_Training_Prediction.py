@@ -14,14 +14,15 @@ classifier.fit(X_train, Y_train.ravel())
 
 # Predicting the Test set results
 Y_pred = classifier.predict(X_test)
-Y_pred = Y_pred.reshape(1,-1)
+
+Y_pred = Y_pred.reshape(-1,1)
+
 # Making the Confusion Matrix
-cm = confusion_matrix(Y_test, Y_pred)
-
-
-plt.scatter(X[:,0],Y, color= 'black')
-plt.plot(X[], Y_pred, color='red')
-plt.title('TITLE')
-plt.xlabel('Factors')
-plt.ylabel('Rating')
-plt.show()
+# cm = confusion_matrix(Y_test, Y_pred)
+#
+# plt.scatter(X[:,0],Y, color= 'black')
+# plt.plot(X[], Y_pred, color='red')
+# plt.title('TITLE')
+# plt.xlabel('Factors')
+# plt.ylabel('Rating')
+# plt.show()
